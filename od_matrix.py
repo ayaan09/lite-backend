@@ -61,6 +61,18 @@ def read_od():
         # print(n1,n2)
     return od_matrix_4
 
+def read_od_ext():
+    with open("od_station_5.txt", "r") as file:
+        f = file.readlines()
+    od_matrix_4 =  [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0], [0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]]
+    for l in f:
+        geo = l.split("_")
+        n1 = int(geo[0][1])
+        n2 = int(geo[1][1])
+        od_matrix_4[n2-1][n1-1]+=1
+        # print(n1,n2)
+    return od_matrix_4
+
 if __name__ == '__main__':
     read_od()
     # if len(sys.argv) < 3:
